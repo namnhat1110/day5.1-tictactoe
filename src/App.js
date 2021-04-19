@@ -23,6 +23,9 @@ const Board = (props) => {
 
 
   const onSquareClicked = (i) => {
+    if (props.squares[i]) {
+      return
+    }
     const newSquares = props.squares
     newSquares[i] = xIsNext ? 'X' : 'O'
     props.setSquares(newSquares)
@@ -30,9 +33,29 @@ const Board = (props) => {
 
   }
 
-  // const status = "Next player: X"
   const status = xIsNext ? "Next player: X" : "Next player: O"
 
+  // const calculateWinner = () => {
+  //   const lines = [
+  //     [0, 1, 2],
+  //     [3, 4, 5],
+  //     [6, 7, 8],
+  //     [0, 3, 6],
+  //     [1, 4, 7],
+  //     [2, 5, 8],
+  //     [0, 4, 8],
+  //     [2, 4, 6],
+  //   ];
+  //   for (let i = 0; i < lines.length; i++) {
+  //     const [a, b, c] = lines[i];
+  //     if (props.squares[a] && props.squares[a] === props.squares[b] && props.squares[a] === props.squares[c]) {
+  //       return props.squares[a];
+  //     }
+  //   }
+  //   return null;
+  // }
+
+  // const winner = calculateWinner(props.squares)
 
   return (
     <div>
