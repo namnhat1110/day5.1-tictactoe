@@ -3,13 +3,13 @@ import './App.css';
 
 
 const Square = (props) => {
-
-  return <button className="square" onClick={() => props.onSquareClicked(props.value)}>{props.hi}</button>;
+  console.log({ props })
+  return <button className="square" onClick={() => true}>{props.hi}</button>;
 };
 
 
 const Board = (props) => {
-  const [xIsNext, setxIsNext] = useState(true)
+  // const [xisNext, setxIsNext] = useState(true)
   const renderSquare = (i) => {
     return (
       <Square
@@ -23,15 +23,11 @@ const Board = (props) => {
 
 
   const onSquareClicked = (i) => {
-    const newSquares = props.squares
-    newSquares[i] = xIsNext ? 'X' : 'O'
-    props.setSquares(newSquares)
-    setxIsNext(!xIsNext)
+    // setxIsNext(!xisNext)
 
   }
 
-  // const status = "Next player: X"
-  const status = xIsNext ? "Next player: X" : "Next player: O"
+  const status = "Next player: X"
 
 
   return (
